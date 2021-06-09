@@ -1,6 +1,12 @@
 package com.example.myweather.view.model
 
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "weather")
 data class MyWeatherModel(
+    @PrimaryKey @ColumnInfo(name = "id") val weatherId: String,
     val base: String,
     val clouds: Clouds,
     val cod: Int,

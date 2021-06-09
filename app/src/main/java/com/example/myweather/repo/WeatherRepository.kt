@@ -56,9 +56,7 @@ class WeatherRepository {
                 // Check if the current work's state is "successfully finished"
                 if (workInfo != null && workInfo.state == WorkInfo.State.SUCCEEDED) {
                     var data = workInfo.outputData
-                    if (data.getString(MyWorker.KEY_TASK_OUTPUT)
-                            .equals("Task Finished Successfully")
-                    ) {
+                    if (data.getString(MyWorker.KEY_TASK_OUTPUT).equals("Task Finished Successfully")) {
                         weatherApi.getWeatherInfo(latitude, longitude, appid)
                             ?.enqueue(object : Callback<MyWeatherModel?> {
                                 override fun onFailure(call: Call<MyWeatherModel?>, t: Throwable) {
